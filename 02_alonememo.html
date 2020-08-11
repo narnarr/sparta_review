@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <!-- 구글폰트 -->
+        <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+
+        <style>
+            .container {
+                width: 900px;
+                padding-top: 20px;
+                font-family: 'Gaegu', cursive;
+            }
+
+            .form-post {
+                width: 500px;
+                margin: 20px auto;
+                padding: 50px;
+                border: #636363 solid;
+                border-radius: 10px;
+            }
+        </style>
+        <script>
+            function showPost() {
+                if ($('#post-box').css('display') == 'none') {
+                    $('#post-box').show();
+                    $('#btn-post-box').text('포스팅 박스 닫기');
+                } else {
+                    $('#post-box').hide();
+                    $('#btn-post-box').text('포스팅 박스 열기');
+                }
+            }
+
+            $.ajax({
+                type: "GET", // GET 방식으로 요청한다.
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+                success: function (response) { // 서버에서 준 결과를 response라는 변수에 담음
+                    console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">케이크는 맛있어!</h1>
+                <p class="lead">세상에는 맛있는 케이크가 너무 많은데 언제 다 먹어보지? 예쁜 케이크 사진들을 보면서 대리만족 해보자:)</p>
+                <hr class="my-4">
+                <p>취향저격 케이크를 모아볼까요?</p>
+                <button id="btn-post-box" type="button" class="btn btn-primary" onclick="showPost()">포스팅 박스 열기</button>
+            </div>
+
+            <div class="form-post" id="post-box">
+                <div class="form-group">
+                    <label for="post-url">케이크 URL</label>
+                    <input type="text" class="form-control" id="post-url" placeholder="URL을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label for="post-comment">간단 코멘트</label>
+                    <input type="text" class="form-control" id="post-comment" placeholder="코멘트를 입력하세요">
+                </div>
+                <a class="btn btn-primary" href="#" role="button">께이꾸 저장</a>
+            </div>
+
+            <div id="cards-box" class="card-columns">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="사진없어ㅠㅠ">
+                    <div class="card-body">
+                        <a href="#" class="card-title"><h5>Card title that wraps to a new line</h5></a>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title that wraps to a new line</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title that wraps to a new line</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title that wraps to a new line</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title that wraps to a new line</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title that wraps to a new line</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
