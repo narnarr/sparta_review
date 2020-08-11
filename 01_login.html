@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login Page</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Recursive&family=Roboto:wght@300&display=swap');
+
+            .container {
+                font-family: 'Roboto', sans-serif;
+                width: 200px;
+                margin: 200px auto; /*width 설정 후 margin 0 auto 하면 중앙 정렬*/
+            }
+
+            .box-login {
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            .inp-text {
+                padding: 3px 3px 3px 3px;
+            }
+            .inp-text+.inp-text {
+                border-top: 1px solid #ddd;
+            }
+
+            .inp-text input {
+                height: 30px;
+                width: 100%; /*box-sizing 없으면 왜 parent의 width 초과하는지*/
+                box-sizing: border-box;
+                border-style:hidden;
+            }
+
+            .btn-login {
+                height: 30px;
+                width: 100%;
+                margin: 15px 0 7px 0;
+                border-radius: 3px;
+                background-color: black;
+                border-style: none;
+            }
+
+            .screen-out {
+                position: absolute;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                text-indent: -9999px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" id="authForm" name="authForm"><!--action="01_login.html"-->
+            <div class="container">
+                <div class="box-login">
+                    <div class="inp-text"><!--아이디 입력-->
+                        <label for="loginID" class="screen-out">ID</label>
+                        <input type="text" id="loginID" name="loginID" placeholder="ID">
+                    </div>
+                    <div class="inp-text"><!--비밀번호 입력-->
+                        <label for="loginPW" class="screen-out">PW</label>
+                        <input type="password" id="loginPW" name="loginPW" placeholder="Password">
+                    </div>
+                </div>
+                <button type="submit" class="btn-login" style="color:whitesmoke">Login</button>
+                    <div class="inp-check">
+                        <input type="checkbox" id="keepLogin" name="keepLogin">
+                        <label for="keepLogin"><span>Keep me logged in</span></label>
+                    </div>
+
+            </div>
+        </form>
+    </body>
+</html>
