@@ -61,6 +61,44 @@
                 $("#btn-post-box").text("포스팅 박스 닫기");
             }
         }
+        //웹페이지 로드 완료 후 실행되는 함수
+        $(document).ready(function() {
+            $('#cards-box');
+            showPost();
+        })
+        function showPost() {
+            alert('화면이 로딩되었습니다.')
+            /*ajax에서 JS 언어로 url에 있는 데이터를 GET하도록 요청함. 그 결과를 response에 담음.*/
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post",
+                data: {},
+                success: function(response) {
+                    let articles = response['articles'];
+                    for (let i =0; i<articles.length; i++) {
+                        let article = articles[i];
+                        let {comment, description, image, title, url} = article;
+                        //let description = article[i][desc]와 동일.
+                        makeCard(comment, description, image, title, url);
+                    }
+                }
+            })
+        }
+        function makeCard(cmt, desc, img, title, url) {
+            let tempHtml = `
+                        <div class="card">
+                            <img class="card-img-top"
+                                 src="${img}"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <a href="${url}" class="card-title">${title}</a>
+                                <p class="card-text">${desc}</p>
+                                <p class="card-text comment">${cmt}</p>
+                            </div>
+                        </div>`;
+                        $('#cards-box').append(tempHtml);
+
+        }
     </script>
 
 </head>
